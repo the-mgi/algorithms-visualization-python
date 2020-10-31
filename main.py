@@ -167,6 +167,8 @@ def main():
 
                     n = goal_node
                     while n:
+                        if n is None:
+                            break
                         n.make_path()
                         draw_on_screen(complete_grid)
                         n = n.parent

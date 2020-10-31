@@ -113,10 +113,6 @@ class Node:
                f'NO_Y: {self.no_y}'
 
 
-def algorithm(start_node: Node, goal_node: Node, complete_grid):
-    pass
-
-
 def get_position(position_tuple):
     return position_tuple[0] // WIDTH_BOX, position_tuple[1] // HEIGHT_BOX
 
@@ -161,13 +157,14 @@ def main():
                                 j.visited = True
                                 queue.append(j)
                                 j.parent = node
-                        if node.is_equal(goal_node):
-                            is_algo_running = False
+                            if node.is_equal(goal_node):
+                                is_algo_running = False
                         draw_on_screen(complete_grid)
 
                     n = goal_node
+
                     while n:
-                        if n is None:
+                        if n.is_equal(start_node):
                             break
                         n.make_path()
                         draw_on_screen(complete_grid)
@@ -200,4 +197,3 @@ def main():
 
 
 main()
-
